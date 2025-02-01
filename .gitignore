@@ -71,3 +71,19 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+*.dll
+*.assets
+*.info
+*.exe
+TestBuilds/sampleuniwindow_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt
+TestBuilds/sampleuniwindow_Data/boot.config
+TestBuilds/sampleuniwindow_Data/globalgamemanagers
+TestBuilds/sampleuniwindow_Data/globalgamemanagers.assets.resS
+TestBuilds/sampleuniwindow_Data/level0
+TestBuilds/sampleuniwindow_Data/level1
+TestBuilds/sampleuniwindow_Data/resources.assets.resS
+TestBuilds/sampleuniwindow_Data/Resources/unity default resources
+TestBuilds/sampleuniwindow_Data/Resources/unity_builtin_extra
+TestBuilds/sampleuniwindow_Data/RuntimeInitializeOnLoads.json
+TestBuilds/sampleuniwindow_Data/ScriptingAssemblies.json
+TestBuilds/sampleuniwindow_Data/sharedassets0.assets.resS
