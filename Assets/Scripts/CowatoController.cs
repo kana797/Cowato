@@ -41,6 +41,13 @@ public class CowatoController : MonoBehaviour
         StartCoroutine(WaitforAnimation(1f));
     }
 
+    public void Stretch()
+    {
+        animator.SetTrigger("Stretch");
+        StartCoroutine(WaitforAnimation(1f));
+    }
+
+
     IEnumerator WaitforAnimation(float delay)
     {
         yield return new WaitForSeconds(delay); // Wait for 'delay' seconds
