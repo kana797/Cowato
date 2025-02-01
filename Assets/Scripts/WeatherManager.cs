@@ -5,7 +5,7 @@ using System.Collections;
 public class WeatherManager : MonoBehaviour
 {
     private string accessKey = "ef467c09ab7dc6aaa58a2335e71c9a10";
-    private string city = "Montreal"; // Replace with your desired city
+    private string city = "Montreal"; // desired city
     private string apiUrl = "https://api.weatherstack.com/current";
 
     public WeatherData weatherData;
