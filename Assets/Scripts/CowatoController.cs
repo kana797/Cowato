@@ -6,6 +6,7 @@ public class CowatoController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private Animator animator;
+    private bool inAnimation;
 
     void Start()
     {
@@ -20,16 +21,19 @@ public class CowatoController : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-            if (hit.collider != null && hit.collider.gameObject == gameObject) // If this sprite is clicked
+            if (hit.collider != null && hit.collider.gameObject == gameObject && !inAnimation) // If this sprite is clicked
             {
+                inAnimation = true;
                 animator.SetTrigger("Pat");
-                animator.SetBool("InAnimation",true);
-                StartCoroutine(WaitAndTrigger(4f));       
+                StartCoroutine(WaitforAnimation(4f)); 
+                inAnimation = false;      
             }
+
         }
     }
-    IEnumerator WaitAndTrigger(float delay)
+    IEnumerator WaitforAnimation(float delay)
     {
+        animator.SetBool("InAnimation",true);
         yield return new WaitForSeconds(delay); // Wait for 'delay' seconds
         animator.SetBool("InAnimation",false);
     }
