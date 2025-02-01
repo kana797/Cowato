@@ -11,11 +11,11 @@ public class WeatherManager : MonoBehaviour
     public WeatherData weatherData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Weathering()
     {
         StartCoroutine(GetWeatherData());
+        
     }
-
     IEnumerator GetWeatherData()
     {
         string url = $"{apiUrl}?access_key={accessKey}&query={city}";
