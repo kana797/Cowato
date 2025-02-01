@@ -258,6 +258,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125305195}
   m_CullTransparentMesh: 1
+--- !u!1 &142906974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142906976}
+  - component: {fileID: 142906975}
+  m_Layer: 0
+  m_Name: APIGameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &142906975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142906974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc425e276291b304c8f6b9b5b62da5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherData:
+    current:
+      temperature: 0
+      weather_descriptions: []
+      feelslike: 0
+      humidity: 0
+      wind_speed: 0
+    location:
+      name: 
+--- !u!4 &142906976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142906974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 385.68494, y: 196.7536, z: -0.0969523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508761214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,3 +1828,4 @@ SceneRoots:
   - {fileID: 1793268766}
   - {fileID: 933417532}
   - {fileID: 1576365194}
+  - {fileID: 142906976}
