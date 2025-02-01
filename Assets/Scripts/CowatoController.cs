@@ -25,7 +25,7 @@ public class CowatoController : MonoBehaviour
             {
                 inAnimation = true;
                 animator.SetTrigger("Pat");
-                StartCoroutine(WaitforAnimation(4f)); 
+                StartCoroutine(WaitforAnimation(1f)); 
                 inAnimation = false;      
             }
 
