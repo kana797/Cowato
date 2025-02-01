@@ -74,9 +74,4 @@ public class Location
     public string name;
 }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
