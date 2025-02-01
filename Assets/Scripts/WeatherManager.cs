@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class WeatherManager : MonoBehaviour
 {
+    public GameObject displayBar; // Assign in Inspector
+    private TMP_Text buttonText; // Use TMP_Text instead of Text
+    private bool isVisible;
+
     private string accessKey = "ef467c09ab7dc6aaa58a2335e71c9a10";
     private string city = "Montreal"; // Replace with your desired city
     private string apiUrl = "https://api.weatherstack.com/current";
@@ -14,7 +20,13 @@ public class WeatherManager : MonoBehaviour
     public void Weathering()
     {
         StartCoroutine(GetWeatherData());
-        
+        string temp = "Temperature: " + weatherData.current.temperature + "°C";
+        string humi = "Humidity: " + weatherData.current.humidity + "%";
+        string feelslike = "Feels Like: " + weatherData.current.feelslike + "°C";
+        buttonText = displayBar.GetComponentInChildren<TMP_Text>();
+        buttonText.text = "I got you! Here is the weather at Montreal Now" + temp + "\n" + feelslike + "\n" + humi;
+        isVisible = !isVisible;
+        displayBar.SetActive(isVisible); 
     }
     IEnumerator GetWeatherData()
     {
