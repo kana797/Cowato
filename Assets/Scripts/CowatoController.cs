@@ -6,7 +6,6 @@ public class CowatoController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private Animator animator;
-    private bool inAnimation;
 
     void Start()
     {
@@ -18,23 +17,34 @@ public class CowatoController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Left-click
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-
-            if (hit.collider != null && hit.collider.gameObject == gameObject && !inAnimation) // If this sprite is clicked
-            {
-                inAnimation = true;
-                animator.SetTrigger("Pat");
-                StartCoroutine(WaitforAnimation(1f)); 
-                inAnimation = false;      
-            }
-
+            Pat();
         }
+
     }
+
+    public void Pat()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+        if (hit.collider != null && hit.collider.gameObject == gameObject) // If this sprite is clicked
+        {
+            animator.SetTrigger("Pat");
+            StartCoroutine(WaitforAnimation(1f));
+        }
+
+    }
+
+    public void Feed()
+    {
+        animator.SetTrigger("Feed");
+        StartCoroutine(WaitforAnimation(1f));
+    }
+
     IEnumerator WaitforAnimation(float delay)
     {
-        animator.SetBool("InAnimation",true);
         yield return new WaitForSeconds(delay); // Wait for 'delay' seconds
-        animator.SetBool("InAnimation",false);
+        animator.SetTrigger("BackToIdle");
     }
+
 }
