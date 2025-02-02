@@ -16,18 +16,19 @@ public class WeatherManager : MonoBehaviour
 
     public WeatherData weatherData;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Weathering()
     {
         StartCoroutine(GetWeatherData());
+        string cond = "Condition: " + weatherData.current.condition.text;
         string temp = "Temperature: " + weatherData.current.temp_c + "°C";
         string humi = "Humidity: " + weatherData.current.humidity + "%";
         string feelslike = "Feels Like: " + weatherData.current.feelslike_c + "°C";
         buttonText = displayBar.GetComponentInChildren<TMP_Text>();
-        buttonText.text = "I got you! Here is the weather at Montreal Now" + temp + "\n" + feelslike + "\n" + humi;
+        buttonText.text = "I got you! Here is the weather at Montreal now (=` ω´=)\n\n" + cond + "\n" + temp + "\n" + feelslike + "\n" + humi;
         isVisible = !isVisible;
         displayBar.SetActive(isVisible); 
     }
+    
     IEnumerator GetWeatherData()
     {
         string url = $"{apiUrl}?key={apiKey}&q={city}";
