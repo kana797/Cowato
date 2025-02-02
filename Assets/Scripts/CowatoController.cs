@@ -46,7 +46,7 @@ public class CowatoController : MonoBehaviour
     public void Stretch()
     {
         animator.SetTrigger("Stretch");
-        StartCoroutine(WaitforAnimation(1f));
+        StartCoroutine(WaitforAnimation(60f));
     }
 
     public void Meditation()
