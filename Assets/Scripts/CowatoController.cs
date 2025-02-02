@@ -7,6 +7,7 @@ public class CowatoController : MonoBehaviour
 
     private Animator animator;
     public WeatherData weatherData;
+    
 
     void Start()
     {

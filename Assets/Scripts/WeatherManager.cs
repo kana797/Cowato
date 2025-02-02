@@ -48,7 +48,7 @@ public class WeatherManager : MonoBehaviour
 
             if (weatherData != null && weatherData.current != null)
             {
-                Debug.Log("Weather Description: " + weatherData.current.weather_descriptions[0]);
+                //Debug.Log("Weather Description: " + weatherData.current.weather_descriptions[0]);
                 Debug.Log("Temperature: " + weatherData.current.temperature + "°C");
                 Debug.Log("Feels Like: " + weatherData.current.feelslike + "°C");
                 Debug.Log("Humidity: " + weatherData.current.humidity + "%");
