@@ -52,7 +52,7 @@ public class CowatoController : MonoBehaviour
     public void Meditation()
     {
         animator.SetTrigger("Meditation");
-        StartCoroutine(WaitforAnimation(2.2f));
+        StartCoroutine(WaitforAnimation(60f));
     }
 
 
