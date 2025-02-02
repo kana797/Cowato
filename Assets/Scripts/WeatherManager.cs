@@ -19,6 +19,7 @@ public class WeatherManager : MonoBehaviour
     public void Weathering()
     {
         StartCoroutine(GetWeatherData());
+
         string cond = "Condition: " + weatherData.current.condition.text;
         string temp = "Temperature: " + weatherData.current.temp_c + "°C";
         string humi = "Humidity: " + weatherData.current.humidity + "%";

@@ -6,17 +6,11 @@ public class CountdownWithButton : MonoBehaviour
 {
     public GameObject countdownPanel; // The object to show (e.g., Panel)
     public TMP_Text timerText; // The TextMeshPro UI text for the countdown
-    public Button startButton; // The button that starts the countdown
     public float countdownTime = 60f; // 1 minute countdown
-
+    public float countdownTime2 = 120f;
     private float timeRemaining;
     private bool isCounting = false;
 
-    void Start()
-    {
-        countdownPanel.SetActive(false); // Hide the panel at the start
-        startButton.onClick.AddListener(StartCountdown); // Assign button event
-    }
 
     void Update()
     {
@@ -36,6 +30,13 @@ public class CountdownWithButton : MonoBehaviour
     {
         countdownPanel.SetActive(true); // Show the panel
         timeRemaining = countdownTime; // Reset timer to 1 minute
+        isCounting = true;
+    }
+
+    public void StartCountdown2()
+    {
+        countdownPanel.SetActive(true); // Show the panel
+        timeRemaining = countdownTime2; // Reset timer to 1 minute
         isCounting = true;
     }
 }
