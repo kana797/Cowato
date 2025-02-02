@@ -1,25 +1,32 @@
-using System;
 
 [System.Serializable]
 public class WeatherData
 {
-    public MainData main;
-    public Weather[] weather;
+    public Location location;
+    public Current current;
 }
 
 [System.Serializable]
-public class MainData
+public class Location
 {
-    public float temp;
-    public float feels_like;
-    public float temp_min;
-    public float temp_max;
+    public string name;
+    public string region;
+    public string country;
+}
+
+[System.Serializable]
+public class Current
+{
+    public float temp_c;
+    public Condition condition;
+    public float wind_kph;
     public int humidity;
+    public float feelslike_c;
 }
 
 [System.Serializable]
-public class Weather
+public class Condition
 {
-    public string main; // e.g., "Rain", "Clear", "Clouds"
-    public string description;
+    public string text;
+    public string icon;
 }
