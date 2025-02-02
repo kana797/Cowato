@@ -19,15 +19,6 @@ public class WeatherManager : MonoBehaviour
     public void Weathering()
     {
         StartCoroutine(GetWeatherData());
-
-        string cond = "Condition: " + weatherData.current.condition.text;
-        string temp = "Temperature: " + weatherData.current.temp_c + "°C";
-        string humi = "Humidity: " + weatherData.current.humidity + "%";
-        string feelslike = "Feels Like: " + weatherData.current.feelslike_c + "°C";
-        buttonText = displayBar.GetComponentInChildren<TMP_Text>();
-        buttonText.text = "I got you! Here is the weather at Montreal now (=` ω´=)\n\n" + cond + "\n" + temp + "\n" + feelslike + "\n" + humi;
-        isVisible = !isVisible;
-        displayBar.SetActive(isVisible); 
     }
     
     IEnumerator GetWeatherData()
@@ -55,6 +46,8 @@ public class WeatherManager : MonoBehaviour
                 Debug.Log("Feels Like: " + weatherData.current.feelslike_c + "°C");
                 Debug.Log("Humidity: " + weatherData.current.humidity + "%");
                 Debug.Log("Wind Speed: " + weatherData.current.wind_kph + " km/h");
+
+                UpdateUI();
             }
             else
             {
@@ -62,6 +55,17 @@ public class WeatherManager : MonoBehaviour
             }
         }
 
+    }
+
+    void UpdateUI(){
+         string cond = "Condition: " + weatherData.current.condition.text;
+        string temp = "Temperature: " + weatherData.current.temp_c + "°C";
+        string humi = "Humidity: " + weatherData.current.humidity + "%";
+        string feelslike = "Feels Like: " + weatherData.current.feelslike_c + "°C";
+        buttonText = displayBar.GetComponentInChildren<TMP_Text>();
+        buttonText.text = "I got you! Here is the weather at Montreal now (=` ω´=)\n\n" + cond + "\n" + temp + "\n" + feelslike + "\n" + humi;
+        isVisible = !isVisible;
+        displayBar.SetActive(isVisible);
     }
 
     // Classes to match the Weatherstack JSON response
