@@ -10,9 +10,9 @@ public class WeatherManager : MonoBehaviour
     private TMP_Text buttonText; // Use TMP_Text instead of Text
     private bool isVisible;
 
-    private string accessKey = "ef467c09ab7dc6aaa58a2335e71c9a10";
-    private string city = "Montreal"; // Replace with your desired city
-    private string apiUrl = "https://api.weatherstack.com/current";
+    private string apiKey = "18dbcea2368b4d179ed01417250202";
+    private string city = "Montreal"; 
+    private string apiUrl = "https://api.weatherapi.com/v1/current.json";
 
     public WeatherData weatherData;
 
@@ -20,9 +20,9 @@ public class WeatherManager : MonoBehaviour
     public void Weathering()
     {
         StartCoroutine(GetWeatherData());
-        string temp = "Temperature: " + weatherData.current.temperature + "°C";
+        string temp = "Temperature: " + weatherData.current.temp_c + "°C";
         string humi = "Humidity: " + weatherData.current.humidity + "%";
-        string feelslike = "Feels Like: " + weatherData.current.feelslike + "°C";
+        string feelslike = "Feels Like: " + weatherData.current.feelslike_c + "°C";
         buttonText = displayBar.GetComponentInChildren<TMP_Text>();
         buttonText.text = "I got you! Here is the weather at Montreal Now" + temp + "\n" + feelslike + "\n" + humi;
         isVisible = !isVisible;
@@ -30,7 +30,7 @@ public class WeatherManager : MonoBehaviour
     }
     IEnumerator GetWeatherData()
     {
-        string url = $"{apiUrl}?access_key={accessKey}&query={city}";
+        string url = $"{apiUrl}?key={apiKey}&q={city}";
         UnityWebRequest request = UnityWebRequest.Get(url);
 
         yield return request.SendWebRequest();
@@ -48,11 +48,11 @@ public class WeatherManager : MonoBehaviour
 
             if (weatherData != null && weatherData.current != null)
             {
-                //Debug.Log("Weather Description: " + weatherData.current.weather_descriptions[0]);
-                Debug.Log("Temperature: " + weatherData.current.temperature + "°C");
-                Debug.Log("Feels Like: " + weatherData.current.feelslike + "°C");
+                Debug.Log("Weather: " + weatherData.current.condition.text);
+                Debug.Log("Temperature: " + weatherData.current.temp_c + "°C");
+                Debug.Log("Feels Like: " + weatherData.current.feelslike_c + "°C");
                 Debug.Log("Humidity: " + weatherData.current.humidity + "%");
-                Debug.Log("Wind Speed: " + weatherData.current.wind_speed + " km/h");
+                Debug.Log("Wind Speed: " + weatherData.current.wind_kph + " km/h");
             }
             else
             {
@@ -66,24 +66,33 @@ public class WeatherManager : MonoBehaviour
 [System.Serializable]
 public class WeatherData
 {
-    public CurrentWeather current;
     public Location location;
+    public Current current;
 }
 
 [System.Serializable]
-public class CurrentWeather
-{
-    public float temperature;
-    public string[] weather_descriptions;
-    public float feelslike;
-    public int humidity;
-    public float wind_speed;
-}
+    public class Location
+    {
+        public string name;
+        public string region;
+        public string country;
+    }
 
 [System.Serializable]
-public class Location
-{
-    public string name;
-}
+    public class Current
+    {
+        public float temp_c;
+        public Condition condition;
+        public float wind_kph;
+        public int humidity;
+        public float feelslike_c;
+    }
+
+[System.Serializable]
+    public class Condition
+    {
+        public string text;
+        public string icon;
+    }
 
 }
