@@ -47,5 +47,6 @@ Exercise Reminders to keep you active! 🔔💪
 Have ideas for more features? Feel free to submit an issue or contribute to the project
 
 Acknowledgement
+
 We used the UniWindowController by kiruobo and kiraio-moe to implement transparent window.
 https://github.com/kirurobo/UniWindowController?tab=readme-ov-file 
